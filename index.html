@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DriveAway - Car Rentals</title>
+<!-- Tailwind CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<!--on scroll-->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!--fonawesome-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<style>
+  html{
+    scroll-behavior: smooth;
+  }
+</style>
+</head>
+<body class="bg-gray-100">
+  <nav class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Branding -->
+        <div class="text-white text-xl font-bold">
+          <a href="#" aria-label="DriveAway Home">Drive<span class="text-yellow-400">Away</span></a>
+        </div>
+        <!-- Full Menu -->
+        <div class="hidden md:flex space-x-6">
+          <a href="#hero" class="text-gray-300 hover:text-white text-sm font-medium">Home</a>
+          <a href="#services" class="text-gray-300 hover:text-white text-sm font-medium">Services</a>
+          <a href="#fleet" class="text-gray-300 hover:text-white text-sm font-medium">Fleet</a>
+          <a href="#contact" class="text-gray-300 hover:text-white text-sm font-medium">Contact</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button 
+          id="menu-toggle" 
+          aria-label="Toggle Menu" 
+          class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+      <a href="#hero" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 text-base font-medium">Home</a>
+      <a href="#services" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 text-base font-medium">Services</a>
+      <a href="#fleet" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 text-base font-medium">Fleet</a>
+      <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 text-base font-medium">Contact</a>
+    </div>
+  </nav>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Toggle mobile menu visibility
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+  <section id="hero" class="relative bg-gray-800 text-white">
+    <!-- Background image -->
+    <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('img/car-3046424_1280.jpg');"></div>
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
+  
+    <!-- Content -->
+    <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen">
+      <div class="text-center max-w-3xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6" data-aos="fade-up">
+          Drive Your Dreams
+        </h1>
+        <p class="text-lg sm:text-xl lg:text-2xl mb-8" data-aos="fade-up" data-aos-delay="200">
+          Discover premium cars at unbeatable rates. Whether it's a weekend escape or a business trip, we have the perfect ride for you.
+        </p>
+        <div class="flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="400">
+          <a href="#fleet" class="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-lg font-semibold rounded-lg transition">
+            Browse Fleet
+          </a>
+          <a href="#contact" class="px-6 py-3 bg-gray-700 hover:bg-gray-800 text-lg font-semibold rounded-lg transition">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+      
+          <section class="bg-gray-100 py-16" id="services">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+              <!-- Section Heading -->
+              <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4" data-aos="fade-up">Our Services</h2>
+                <p class="text-lg text-gray-600" data-aos="fade-up" data-aos-delay="200">
+                  Experience unmatched quality and convenience with our premium car rental services.
+                </p>
+              </div>
+          
+              <!-- Services Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div 
+                  class="group relative bg-white shadow-md rounded-lg overflow-hidden transform transition hover:scale-105 hover:shadow-xl"
+                  data-aos="fade-up">
+                  <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/400x300/?car');"></div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-yellow-500">Luxury Cars</h3>
+                    <p class="text-gray-600 mb-4">
+                      Rent top-tier luxury vehicles for your business or leisure trips.
+                    </p>
+                    <button 
+                      class="text-yellow-500 font-medium hover:underline" 
+                      onclick="openModal('luxuryCarsModal')">Learn More</button>
+                  </div>
+                </div>
+          
+                <!-- Service Card 2 -->
+                <div 
+                  class="group relative bg-white shadow-md rounded-lg overflow-hidden transform transition hover:scale-105 hover:shadow-xl"
+                  data-aos="fade-up" data-aos-delay="100">
+                  <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/400x300/?SUV');"></div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-yellow-500">SUV Rentals</h3>
+                    <p class="text-gray-600 mb-4">
+                      Perfect for family adventures and group trips.
+                    </p>
+                    <button 
+                      class="text-yellow-500 font-medium hover:underline" 
+                      onclick="openModal('suvRentalsModal')">Learn More</button>
+                  </div>
+                </div>
+          
+                <!-- Service Card 3 -->
+                <div 
+                  class="group relative bg-white shadow-md rounded-lg overflow-hidden transform transition hover:scale-105 hover:shadow-xl"
+                  data-aos="fade-up" data-aos-delay="200">
+                  <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/400x300/?sports-car');"></div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-yellow-500">Sports Cars</h3>
+                    <p class="text-gray-600 mb-4">
+                      Get behind the wheel of high-performance vehicles.
+                    </p>
+                    <button 
+                      class="text-yellow-500 font-medium hover:underline" 
+                      onclick="openModal('sportsCarsModal')">Learn More</button>
+                  </div>
+                </div>
+          
+                <!-- Service Card 4 -->
+                <div 
+                  class="group relative bg-white shadow-md rounded-lg overflow-hidden transform transition hover:scale-105 hover:shadow-xl"
+                  data-aos="fade-up" data-aos-delay="300">
+                  <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/400x300/?electric-car');"></div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-yellow-500">Electric Cars</h3>
+                    <p class="text-gray-600 mb-4">
+                      Environmentally friendly options for modern travelers.
+                    </p>
+                    <button 
+                      class="text-yellow-500 font-medium hover:underline" 
+                      onclick="openModal('electricCarsModal')">Learn More</button>
+                  </div>
+                </div>
+          
+                <!-- Service Card 5 -->
+                <div 
+                  class="group relative bg-white shadow-md rounded-lg overflow-hidden transform transition hover:scale-105 hover:shadow-xl"
+                  data-aos="fade-up" data-aos-delay="400">
+                  <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/400x300/?van');"></div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-yellow-500">Van Rentals</h3>
+                    <p class="text-gray-600 mb-4">
+                      Spacious options for moving cargo or group travel.
+                    </p>
+                    <button 
+                      class="text-yellow-500 font-medium hover:underline" 
+                      onclick="openModal('vanRentalsModal')">Learn More</button>
+                  </div>
+                </div>
+          
+                <!-- Service Card 6 -->
+                <div 
+                  class="group relative bg-white shadow-md rounded-lg overflow-hidden transform transition hover:scale-105 hover:shadow-xl"
+                  data-aos="fade-up" data-aos-delay="500">
+                  <div class="h-64 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/400x300/?convertible');"></div>
+                  <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-yellow-500">Convertibles</h3>
+                    <p class="text-gray-600 mb-4">
+                      Enjoy the open road with style and comfort.
+                    </p>
+                    <button 
+                      class="text-yellow-500 font-medium hover:underline" 
+                      onclick="openModal('convertiblesModal')">Learn More</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <!-- Modals -->
+            <!-- Luxury Cars Modal -->
+            <div id="luxuryCarsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+              <div class="bg-white rounded-lg p-6 w-full max-w-lg">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Luxury Cars</h3>
+                <p class="text-gray-600 mb-6">Enjoy top-tier comfort and sophistication with our luxury car rentals.</p>
+                <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600" onclick="closeModal('luxuryCarsModal')">Close</button>
+              </div>
+            </div>
+          
+            <!-- Modal 1: Luxury Cars -->
+<div id="luxuryCarsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-lg">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4">Luxury Cars</h3>
+      <p class="text-gray-600 mb-6">
+        Enjoy unparalleled comfort and sophistication with our luxury car rentals. Ideal for business meetings, special events, or leisure travel, our fleet includes top-of-the-line models equipped with advanced features.
+      </p>
+      <button 
+        class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+        onclick="closeModal('luxuryCarsModal')">Close</button>
+    </div>
+  </div>
+  
+  <!-- Modal 2: SUV Rentals -->
+  <div id="suvRentalsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-lg">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4">SUV Rentals</h3>
+      <p class="text-gray-600 mb-6">
+        Our SUV rentals are perfect for family vacations, group outings, or outdoor adventures. With spacious interiors and rugged capabilities, our SUVs ensure a comfortable and safe journey.
+      </p>
+      <button 
+        class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+        onclick="closeModal('suvRentalsModal')">Close</button>
+    </div>
+  </div>
+  
+  <!-- Modal 3: Sports Cars -->
+  <div id="sportsCarsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-lg">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4">Sports Cars</h3>
+      <p class="text-gray-600 mb-6">
+        Experience the thrill of high-performance vehicles with our sports car rentals. Perfect for adrenaline enthusiasts, our lineup features sleek, powerful cars designed for speed and style.
+      </p>
+      <button 
+        class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+        onclick="closeModal('sportsCarsModal')">Close</button>
+    </div>
+  </div>
+  
+  <!-- Modal 4: Electric Cars -->
+  <div id="electricCarsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-lg">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4">Electric Cars</h3>
+      <p class="text-gray-600 mb-6">
+        Go green with our electric car rentals. Combining sustainability and modern technology, our electric vehicles are perfect for eco-conscious travelers who don’t want to compromise on quality or comfort.
+      </p>
+      <button 
+        class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+        onclick="closeModal('electricCarsModal')">Close</button>
+    </div>
+  </div>
+  
+  <!-- Modal 5: Van Rentals -->
+  <div id="vanRentalsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-lg">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4">Van Rentals</h3>
+      <p class="text-gray-600 mb-6">
+        Need extra space? Our van rentals are ideal for large groups or transporting equipment. With roomy interiors and practical features, our vans ensure convenience and reliability for any occasion.
+      </p>
+      <button 
+        class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+        onclick="closeModal('vanRentalsModal')">Close</button>
+    </div>
+  </div>
+  
+  <!-- Modal 6: Convertibles -->
+  <div id="convertiblesModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-lg">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4">Convertibles</h3>
+      <p class="text-gray-600 mb-6">
+        Embrace the open road with our stylish convertible rentals. Perfect for sunny days and scenic drives, our convertibles offer an unmatched driving experience with the top down.
+      </p>
+      <button 
+        class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+        onclick="closeModal('convertiblesModal')">Close</button>
+    </div>
+  </div>
+  
+          
+          </section>
+          
+          
+      
+      <script>
+        function openModal(modalId) {
+          document.getElementById(modalId).classList.remove('hidden');
+        }
+      
+        function closeModal(modalId) {
+          document.getElementById(modalId).classList.add('hidden');
+        }
+      </script>
+      
+  <!--fleet section-->
+  <section id="fleet" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-6">
+      <!-- Section Heading -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4" data-aos="fade-up">Our Fleet</h2>
+        <p class="text-lg text-gray-600" data-aos="fade-up" data-aos-delay="100">
+          A closer look at our exclusive collection of vehicles tailored for every need.
+        </p>
+      </div>
+  
+      <!-- Fleet Carousel -->
+      <div class="relative">
+        <!-- Fleet Items Wrapper with Hidden Scrollbar -->
+        <div class="fleet-scroll-container flex overflow-x-auto space-x-6" data-aos="fade-left">
+          <!-- Fleet Item 1 -->
+          <div class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg transform transition hover:scale-105">
+            <div 
+              class="h-48 bg-cover bg-center rounded-t-lg" 
+              style="background-image: url('https://source.unsplash.com/400x300/?luxury-car');">
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-gray-800 mb-3">Luxury Sedans</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Experience the ultimate in comfort and sophistication.
+              </p>
+              <button 
+                class="bg-yellow-500 px-4 py-2 rounded text-gray-900 font-medium hover:bg-yellow-600"
+                onclick="openModal('luxurySedansModal')">Details</button>
+            </div>
+          </div>
+  
+          <!-- Fleet Item 2 -->
+          <div class="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg transform transition hover:scale-105">
+            <div 
+              class="h-48 bg-cover bg-center rounded-t-lg" 
+              style="background-image: url('https://source.unsplash.com/400x300/?SUV');">
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-gray-800 mb-3">SUVs</h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Versatility and power for any terrain or occasion.
+              </p>
+              <button 
+                class="bg-yellow-500 px-4 py-2 rounded text-gray-900 font-medium hover:bg-yellow-600"
+                onclick="openModal('suvModal')">Details</button>
+            </div>
+          </div>
+  
+          <!-- Add more fleet items as needed -->
+        </div>
+  
+        <!-- Carousel Arrows -->
+        <button 
+          class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-2 rounded-full text-white hover:bg-yellow-500"
+          onclick="scrollFleet(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button 
+          class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-2 rounded-full text-white hover:bg-yellow-500"
+          onclick="scrollFleet(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+<!-- Modal for Luxury Sedans -->
+<div id="luxurySedansModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white rounded-lg p-6 w-full max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 mb-4">Luxury Sedans</h3>
+    <p class="text-gray-600 mb-6">
+      Our fleet of luxury sedans offers top-notch comfort, style, and performance, perfect for both business and leisure.
+    </p>
+    <button 
+      class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+      onclick="closeModal('luxurySedansModal')">Close</button>
+  </div>
+</div>
+
+<!-- Modal for SUVs -->
+<div id="suvModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white rounded-lg p-6 w-full max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 mb-4">SUVs</h3>
+    <p class="text-gray-600 mb-6">
+      Our SUV fleet combines power and versatility, ideal for family trips or off-road adventures.
+    </p>
+    <button 
+      class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+      onclick="closeModal('suvModal')">Close</button>
+  </div>
+</div>
+<script>
+  function openModal(modalId) {
+    document.getElementById(modalId).classList.remove('hidden');
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.add('hidden');
+  }
+
+  function scrollFleet(direction) {
+    const container = document.querySelector('.fleet-scroll-container');
+    const scrollAmount = 300; // Adjust based on desired scroll distance
+    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+</script>
+  
+  <style>
+    /* Hide scrollbar for Fleet container */
+    .fleet-scroll-container {
+      overflow-x: scroll;
+      scrollbar-width: none; /* For Firefox */
+      -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    }
+  
+    .fleet-scroll-container::-webkit-scrollbar {
+      display: none; /* For Chrome, Safari, and Edge */
+    }
+  </style>
+    
+  
+  <script>
+  function scrollFleet(direction) {
+  const fleetContainer = document.querySelector('#fleet .flex.overflow-x-auto');
+  const scrollAmount = direction * 300; // Adjust scroll amount as needed
+  fleetContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+}
+
+  </script>
+  <!--contact section-->
+  <section id="contact" class="relative bg-gray-50 py-16">
+    <div class="container mx-auto px-6">
+      <!-- Section Header -->
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+        <p class="text-lg text-gray-600">
+          Whether you have a question, want to collaborate, or just say hi, we’d love to hear from you!
+        </p>
+      </div>
+  
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+        <!-- WhatsApp -->
+        <div class="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transform transition hover:scale-105">
+          <i class="fab fa-whatsapp text-green-500 text-5xl mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">WhatsApp</h3>
+          <p class="text-gray-600 text-center mb-4">Chat with us instantly on WhatsApp for quick support.</p>
+          <a 
+            href="https://wa.me/1234567890" 
+            class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            target="_blank">Message Now</a>
+        </div>
+  
+        <!-- Email -->
+        <div class="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transform transition hover:scale-105">
+          <i class="fas fa-envelope text-yellow-500 text-5xl mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Email</h3>
+          <p class="text-gray-600 text-center mb-4">Send us an email, and we’ll get back to you within 24 hours.</p>
+          <a 
+            href="mailto:info@nomadshues.com" 
+            class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+            target="_blank">Send Email</a>
+        </div>
+  
+        <!-- Social Media -->
+        <div class="flex flex-col items-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transform transition hover:scale-105">
+          <i class="fas fa-share-alt text-blue-500 text-5xl mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Social Media</h3>
+          <p class="text-gray-600 text-center mb-4">Follow us for updates and promotions on our social channels.</p>
+          <div class="flex space-x-4">
+            <a href="#" target="_blank" class="text-blue-500 text-2xl hover:text-blue-600">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" target="_blank" class="text-blue-400 text-2xl hover:text-blue-500">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" target="_blank" class="text-pink-500 text-2xl hover:text-pink-600">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" target="_blank" class="text-red-500 text-2xl hover:text-red-600">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Contact Form -->
+      <div class="bg-white shadow-lg rounded-lg mt-12 p-8" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Send Us a Message</h3>
+        <form action="#" method="POST" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="Your Name" 
+              required 
+              class="w-full p-4 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500">
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Your Email" 
+              required 
+              class="w-full p-4 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500">
+          </div>
+          <input 
+            type="text" 
+            name="subject" 
+            placeholder="Subject" 
+            required 
+            class="w-full p-4 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500">
+          <textarea 
+            name="message" 
+            placeholder="Your Message" 
+            rows="5" 
+            required 
+            class="w-full p-4 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500"></textarea>
+          <button 
+            type="submit" 
+            class="w-full bg-yellow-500 text-white py-4 rounded hover:bg-yellow-600">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!--footer-->
+  <!-- Footer Section for DriveAway -->
+<footer id="footer" class="relative text-gray-100 bg-gray-900 py-16">
+  <!-- Particle.js Container -->
+  <div id="particles-js" class="absolute inset-0 z-0"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <!-- Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- About Section -->
+      <div>
+        <h3 class="text-2xl font-bold mb-4">About DriveAway</h3>
+        <p class="text-gray-300">
+          At DriveAway, we provide premium car rental services to ensure a smooth and luxurious journey. From compact cars to luxury SUVs, we have the perfect vehicle for your adventure.
+        </p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Quick Links</h3>
+        <ul class="space-y-3">
+          <li><a href="#hero" class="hover:text-yellow-500">Home</a></li>
+          <li><a href="#services" class="hover:text-yellow-500">Services</a></li>
+          <li><a href="#fleet" class="hover:text-yellow-500">Fleet</a></li>
+          <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media & Contact -->
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Connect with Us</h3>
+        <p class="mb-4">Follow us on our social channels:</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-blue-500 hover:text-blue-600 text-3xl">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" class="text-blue-400 hover:text-blue-500 text-3xl">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-pink-500 hover:text-pink-600 text-3xl">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-red-500 hover:text-red-600 text-3xl">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        <p class="mt-6">
+          <i class="fas fa-envelope text-yellow-500"></i> 
+          <a href="mailto:support@driveaway.com" class="hover:text-yellow-500">support@driveaway.com</a>
+        </p>
+        <p class="mt-2">
+          <i class="fas fa-phone text-yellow-500"></i> 
+          +123 456 7890
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="mt-12 text-center text-gray-400">
+      &copy; 2024 DriveAway. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Include Particles.js -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: "#ffffff" },
+      shape: {
+        type: "circle",
+        stroke: { width: 0, color: "#000000" },
+        polygon: { nb_sides: 5 },
+      },
+      opacity: { value: 0.5, random: false },
+      size: { value: 3, random: true },
+      line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+      move: {
+        enable: true,
+        speed: 6,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+        attract: { enable: false, rotateX: 600, rotateY: 1200 },
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" },
+        resize: true,
+      },
+      modes: {
+        grab: { distance: 400, line_linked: { opacity: 1 } },
+        bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+        repulse: { distance: 200, duration: 0.4 },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 },
+      },
+    },
+    retina_detect: true,
+  });
+</script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800, // Animation duration in milliseconds
+      once: true,    // Whether animation should only happen once
+    });
+  </script>  
+</body>
+</html>
